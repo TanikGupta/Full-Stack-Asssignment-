@@ -43,17 +43,22 @@ const About = () => {
             <div className="relative group w-full max-w-sm">
               <div className="absolute -inset-1 bg-gradient-to-r from-brand-600 via-purple-600 to-cyanAccent rounded-3xl blur-lg opacity-40 group-hover:opacity-75 transition duration-500 group-hover:duration-200" />
               <div className="relative rounded-2xl bg-white dark:bg-slate-900 p-6 border border-slate-200 dark:border-slate-800 shadow-xl">
-                {/* Avatar graphic / Initials */}
-                <div className="w-full aspect-square rounded-xl bg-gradient-to-tr from-slate-900 via-indigo-950 to-brand-900 flex flex-col items-center justify-center text-white relative overflow-hidden shadow-inner">
-                  <div className="absolute -right-8 -top-8 w-32 h-32 bg-brand-500/30 rounded-full blur-xl" />
-                  <div className="absolute -left-8 -bottom-8 w-32 h-32 bg-cyanAccent/20 rounded-full blur-xl" />
-                  <span className="text-7xl font-black tracking-tighter gradient-text">TG</span>
-                  <p className="mt-3 text-sm font-mono text-slate-300 tracking-wider uppercase">
-                    Tanik Gupta
-                  </p>
-                  <span className="mt-1 text-xs text-brand-400 bg-brand-950/60 px-3 py-1 rounded-full border border-brand-500/30">
-                    B.Tech CSE @ JKLU
-                  </span>
+                {/* Profile Photo */}
+                <div className="w-full aspect-[4/5] rounded-2xl overflow-hidden relative shadow-inner bg-slate-100 dark:bg-slate-800 border-2 border-brand-500/20 group">
+                  <img
+                    src="/profile.jpg"
+                    alt={personalInfo.name}
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                    <p className="text-xl font-bold tracking-tight">
+                      {personalInfo.name}
+                    </p>
+                    <p className="text-xs text-brand-300 font-mono">
+                      B.Tech CSE • JK Lakshmipat University
+                    </p>
+                  </div>
                 </div>
 
                 {/* Profile Quick Info */}

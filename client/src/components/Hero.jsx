@@ -64,6 +64,22 @@ const Hero = () => {
           <span>Open to Software Development & Full-Stack Internships</span>
         </motion.div>
 
+        {/* Profile Image with Glowing Gradient Border */}
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.05 }}
+          className="mb-6 inline-block relative group"
+        >
+          <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full p-1 bg-gradient-to-tr from-brand-500 via-purple-500 to-cyanAccent shadow-2xl shadow-brand-500/30 mx-auto group-hover:scale-105 transition-transform duration-300">
+            <img
+              src="/profile.jpg"
+              alt={personalInfo.name}
+              className="w-full h-full rounded-full object-cover object-top border-2 border-white dark:border-slate-900"
+            />
+          </div>
+        </motion.div>
+
         {/* Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
