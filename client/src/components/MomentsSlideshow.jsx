@@ -35,17 +35,6 @@ const slides = [
       'Leading cultural spirit and musical stage performance during national celebrations (26th January Republic Day & 15th August Independence Day).',
     location: 'University Grounds',
     tag: 'Cultural Heritage'
-  },
-  {
-    id: 4,
-    image: '/gallery/portrait.jpg',
-    title: 'Tanik Gupta — B.Tech CSE & Developer',
-    badge: 'Full-Stack Developer',
-    subtitle: 'General Secretary – Cultural Affairs (Student Council)',
-    description:
-      'Driven software engineering student combining MERN stack development with impactful university leadership.',
-    location: 'Jaipur, Rajasthan',
-    tag: 'Profile'
   }
 ];
 
@@ -114,7 +103,7 @@ const MomentsSlideshow = () => {
                 <img
                   src={currentSlide.image}
                   alt={currentSlide.title}
-                  className="w-full h-full object-cover object-center"
+                  className="w-full h-full object-cover object-top sm:object-center"
                 />
 
                 {/* Dark Vignette / Gradient Overlay */}
