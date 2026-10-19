@@ -61,7 +61,7 @@ export const projectsData = [
       "A comprehensive full-stack student documentation portal built to streamline registration, document verification, and administrative workflow for newly admitted university students.",
     tags: ["Node.js", "Express", "JavaScript", "HTML5", "CSS3", "Firebase Firestore", "REST APIs"],
     github: "https://github.com/TanikGupta",
-    live: "https://github.com/TanikGupta",
+    live: "https://sahayak.jklu.edu.in",
     featured: true,
     highlights: [
       "Streamlined verification workflow for over 500+ onboarding students",
@@ -78,7 +78,7 @@ export const projectsData = [
       "Full-stack interactive auction platform built for college fest bidding, player drafting, and real-time team budget management with dynamic state updates and transparent bidding logs.",
     tags: ["React.js", "Node.js", "Express", "REST APIs", "Tailwind CSS", "JavaScript"],
     github: "https://github.com/TanikGupta",
-    live: "https://github.com/TanikGupta",
+    live: "https://ipl-auction-website-mu.vercel.app/",
     featured: true,
     highlights: [
       "Real-time team purse and remaining budget calculation engine",
