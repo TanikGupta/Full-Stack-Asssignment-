@@ -6,9 +6,9 @@ import { personalInfo } from '../data/portfolioData';
 const About = () => {
   const highlights = [
     { label: 'CGPA', value: personalInfo.cgpa, sub: 'Scale of 10 at JKLU' },
-    { label: 'Degree', value: 'B.Tech CSE', sub: '2024 – 2028' },
-    { label: 'Council Roles', value: '3+ Years', sub: 'General Secretary / Co-Chair' },
-    { label: 'Projects', value: '4+ Real-world', sub: 'MERN, ML, DBMS' }
+    { label: 'Roll Number', value: personalInfo.rollNo, sub: 'B.Tech CSE (2024-28)' },
+    { label: 'Leadership', value: 'CR & Council', sub: '3rd Year Sec B / Transport' },
+    { label: 'Web Projects', value: 'Sahayak & Aarambh', sub: 'MERN & Full-Stack Apps' }
   ];
 
   return (
@@ -69,11 +69,11 @@ const About = () => {
                   </div>
                   <div className="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-300">
                     <GraduationCap className="w-4 h-4 text-purple-500 flex-shrink-0" />
-                    <span>{personalInfo.degree}</span>
+                    <span>{personalInfo.degree} <strong className="font-mono text-xs text-brand-600 dark:text-brand-400">({personalInfo.rollNo})</strong></span>
                   </div>
                   <div className="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-300">
                     <Award className="w-4 h-4 text-cyanAccent flex-shrink-0" />
-                    <span>CGPA: <strong>{personalInfo.cgpa}</strong></span>
+                    <span>CGPA: <strong>{personalInfo.cgpa}</strong> • CR (3rd Yr Sec B)</span>
                   </div>
                 </div>
               </div>

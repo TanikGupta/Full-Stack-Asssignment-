@@ -1,13 +1,15 @@
 export const personalInfo = {
   name: "Tanik Gupta",
+  rollNo: "2024BTech234",
   role: "Full-Stack Web Developer",
   subtitles: [
     "Full-Stack Web Developer",
-    "B.Tech Computer Science & Engineering Student",
-    "MERN Stack Enthusiast",
-    "Campus Leader & Operations Lead"
+    "Developer of Sahayak & Aarambh Auction",
+    "B.Tech CSE Student (Roll: 2024BTech234)",
+    "Class Representative (CR - 3rd Year Sec B)",
+    "Campus Leader & Operations Head"
   ],
-  bio: "Detail-oriented and driven B.Tech CSE student at JK Lakshmipat University with a solid foundation in MERN stack development, Python, DSA, and DBMS. Proven leadership and organizational capabilities demonstrated through core roles in multiple college committees and large-scale tech/cultural events. Seeking internship and entry-level opportunities to apply technical expertise and problem-solving skills in a high-impact environment.",
+  bio: "Detail-oriented and driven B.Tech CSE student (Roll No: 2024BTech234) at JK Lakshmipat University. Full-stack developer with real-world applications deployed including the Sahayak Documentation Portal and Aarambh Auction Platform. Active Class Representative (CR - BTech 3rd Year Sec B), Academic Affairs Intern, and Student Council Leader with extensive experience directing operations for university-level fests, hackathons, and cultural initiatives.",
   location: "Jaipur, Rajasthan, India",
   email: "TanikGupta@jklu.edu.in",
   phone: "+91 9929396663",
@@ -16,30 +18,36 @@ export const personalInfo = {
   cgpa: "8.268",
   github: "https://github.com/TanikGupta",
   linkedin: "https://www.linkedin.com/in/tanik-gupta-643a53313/",
-  status: "Student / Aspiring Full-Stack Engineer"
+  status: "Student / Full-Stack Engineer & CR"
 };
 
 export const skillsData = {
   frontend: [
-    { name: "React.js", level: 85, icon: "Code2" },
-    { name: "JavaScript (ES6+)", level: 88, icon: "FileCode" },
+    { name: "React.js", level: 88, icon: "Code2" },
+    { name: "JavaScript (ES6+)", level: 90, icon: "FileCode" },
     { name: "HTML5 & CSS3", level: 92, icon: "Layout" },
-    { name: "Tailwind CSS", level: 85, icon: "Palette" },
+    { name: "Tailwind CSS", level: 86, icon: "Palette" },
     { name: "Responsive UI Design", level: 90, icon: "Smartphone" }
   ],
   backend: [
-    { name: "Node.js", level: 84, icon: "Server" },
-    { name: "Express.js", level: 82, icon: "Cpu" },
-    { name: "REST APIs", level: 88, icon: "Network" },
-    { name: "Firebase Firestore", level: 78, icon: "Flame" },
+    { name: "Node.js", level: 86, icon: "Server" },
+    { name: "Express.js", level: 84, icon: "Cpu" },
+    { name: "REST APIs", level: 89, icon: "Network" },
+    { name: "Firebase Firestore", level: 80, icon: "Flame" },
     { name: "Python", level: 85, icon: "Terminal" }
   ],
   databaseAndTools: [
-    { name: "MongoDB & Mongoose", level: 82, icon: "Database" },
-    { name: "MySQL / DBMS", level: 86, icon: "HardDrive" },
+    { name: "MongoDB & Mongoose", level: 84, icon: "Database" },
+    { name: "MySQL / DBMS", level: 88, icon: "HardDrive" },
     { name: "Git & GitHub", level: 88, icon: "GitBranch" },
-    { name: "Linux / Virtual Machines", level: 80, icon: "Layers" },
+    { name: "Linux / Red Hat CLI", level: 82, icon: "Layers" },
     { name: "VS Code & Postman", level: 90, icon: "Wrench" }
+  ],
+  leadership: [
+    { name: "Team Leadership", level: 95, icon: "Users" },
+    { name: "Event Planning & Execution", level: 96, icon: "Award" },
+    { name: "Public Speaking & Representation", level: 92, icon: "Smartphone" },
+    { name: "Logistics & Operations (SPOC)", level: 94, icon: "Layers" }
   ]
 };
 
@@ -63,6 +71,23 @@ export const projectsData = [
   },
   {
     id: 2,
+    title: "Aarambh Auction Website",
+    subtitle: "Live Bidding & Player Auction Platform",
+    category: "Full Stack",
+    description:
+      "Full-stack interactive auction platform built for college fest bidding, player drafting, and real-time team budget management with dynamic state updates and transparent bidding logs.",
+    tags: ["React.js", "Node.js", "Express", "REST APIs", "Tailwind CSS", "JavaScript"],
+    github: "https://github.com/TanikGupta",
+    live: "https://github.com/TanikGupta",
+    featured: true,
+    highlights: [
+      "Real-time team purse and remaining budget calculation engine",
+      "Interactive player showcase cards with live bidding status updates",
+      "Admin controls for auctioneer approvals and team bidder management"
+    ]
+  },
+  {
+    id: 3,
     title: "Bank Marketing Campaign Response Prediction",
     subtitle: "Machine Learning & Analytics Dashboard",
     category: "ML / Python",
@@ -79,7 +104,7 @@ export const projectsData = [
     ]
   },
   {
-    id: 3,
+    id: 4,
     title: "Event & Cultural Fest Management System",
     subtitle: "DBMS & Web Management Platform",
     category: "DBMS / Full Stack",
@@ -96,9 +121,9 @@ export const projectsData = [
     ]
   },
   {
-    id: 4,
+    id: 5,
     title: "Eco Charge Bag – Portable Solar Bag",
-    subtitle: "Hardware & Business Feasibility Concept",
+    subtitle: "CleanTech & Business Feasibility Concept",
     category: "Innovation",
     description:
       "Feasibility study and concept architecture for a smart portable backpack integrated with solar harvesting and high-efficiency battery backup for on-the-go electronic device charging.",
@@ -117,47 +142,74 @@ export const timelineData = [
   {
     type: "education",
     title: "B.Tech in Computer Science & Engineering",
-    institution: "JK Lakshmipat University, Jaipur",
+    institution: "JK Lakshmipat University, Jaipur (Roll: 2024BTech234)",
     period: "2024 – 2028",
     badge: "CGPA: 8.268",
     description:
-      "Pursuing core computer science courses including Data Structures & Algorithms, Database Management Systems, Computer Networks, and Full-Stack Web Development."
+      "Pursuing core computer science courses including DSA, DBMS, Computer Networks, and Full-Stack Web Engineering. Active Class Representative (CR) for 3rd Year Section B."
+  },
+  {
+    type: "leadership",
+    title: "Class Representative (CR) – BTech 3rd Year Sec B",
+    institution: "JK Lakshmipat University",
+    period: "2026 – Present",
+    badge: "Academic Leadership",
+    description:
+      "Serving as the primary liaison between faculty, administration, and students, facilitating academic coordination and course feedback."
+  },
+  {
+    type: "experience",
+    title: "Intern – Academic Affairs",
+    institution: "JK Lakshmipat University",
+    period: "2026",
+    badge: "Institutional Role",
+    description:
+      "Assisting university administrative leadership in academic scheduling, policy documentation, and student onboarding processes."
   },
   {
     type: "experience",
     title: "Full-Stack Web Developer Intern (Practice School-I)",
-    institution: "Sahayak Portal Development Team",
+    institution: "Sahayak & Aarambh Portals Team",
     period: "July 2026",
-    badge: "Internship",
+    badge: "Software Engineering",
     description:
-      "Engineered the full-stack student documentation portal to automate student verification, document validation, and registration workflows."
+      "Engineered the full-stack Sahayak student documentation portal and the Aarambh live auction platform."
   },
   {
     type: "leadership",
-    title: "General Secretary – Cultural (Student Council)",
+    title: "Organizing Head (OH) – Aarambh'26 & Mentor – Parichay'26",
     institution: "JK Lakshmipat University",
-    period: "2026 – 2027",
-    badge: "Leadership Role",
+    period: "2026",
+    badge: "Flagship Event Lead",
     description:
-      "Elected to direct university-wide cultural activities, budget allocations, and inter-collegiate event logistics."
+      "Directed end-to-end event planning, budget allocations, stage operations, and peer mentorship for university orientation and freshers."
   },
   {
     type: "leadership",
-    title: "Transport Coordinator (Student Council)",
+    title: "Transport Coordinator (Student Council) & SPOC Route 4",
     institution: "JK Lakshmipat University",
     period: "2025 – 2026",
     badge: "Council Role",
     description:
-      "Managed university transit operations, coordinating logistics for 1,000+ students and event delegates."
+      "Directed campus transit logistics and served as Single Point of Contact (SPOC) for Route 4, coordinating daily transit for hundreds of students."
   },
   {
     type: "leadership",
     title: "Co-Chair – Community & Development Club (CDC)",
     institution: "JK Lakshmipat University",
     period: "2024 – 2025",
-    badge: "Leadership Role",
+    badge: "Student Council",
     description:
-      "Led community engagement initiatives, social drives, and student peer mentoring programs across campus."
+      "Headed community initiatives, blood donation drives, campus awareness, and student development workshops."
+  },
+  {
+    type: "leadership",
+    title: "Core Operations Lead – Flagship College Fests",
+    institution: "Sabrang, Spardha, HackJKLU, DGD & Muqabla",
+    period: "2024 – 2026",
+    badge: "Operations Lead",
+    description:
+      "Served in Core / Coordinator / Volunteer roles across Sabrang (24, 25, 26), HackJKLU (v4.0, v5.0), Spardha (25, 26), Muqabla'25, and Design Guru Day (DGD'25)."
   },
   {
     type: "education",
@@ -165,7 +217,7 @@ export const timelineData = [
     institution: "Vardhman International School, Jaipur",
     period: "Graduated 2024",
     badge: "80%",
-    description: "Completed secondary education under CBSE with a focus on Physics, Chemistry, and Mathematics."
+    description: "Completed senior secondary CBSE curriculum with a focus on Physics, Chemistry, and Mathematics."
   },
   {
     type: "education",
@@ -173,7 +225,7 @@ export const timelineData = [
     institution: "Ryan International School, Jaipur",
     period: "Graduated 2022",
     badge: "92%",
-    description: "Awarded top academic honors in 10th CBSE examinations."
+    description: "Graduated with top academic honors in 10th CBSE board examinations."
   }
 ];
 
@@ -197,21 +249,39 @@ export const certificationsData = [
     skills: ["Linux CLI", "User Administration", "Process Management", "File Permissions"]
   },
   {
-    title: "HackJKLU v5.0 – Annual National Hackathon",
+    title: "HackJKLU v5.0 & v4.0 – National Hackathons",
     issuer: "JK Lakshmipat University",
-    parts: "Core Team (Food & Accommodation Lead)",
-    date: "2026",
+    parts: "Core Food & Accommodation Lead",
+    date: "2025 – 2026",
     icon: "Award",
     link: "https://jklu.edu.in",
-    skills: ["Hackathon Operations", "Large-scale Hospitality", "Problem Solving"]
+    skills: ["Hackathon Logistics", "Hospitality Management", "Crisis Resolution"]
   },
   {
-    title: "Sabrang'26 & Spardha'26 College Fests",
-    issuer: "JKLU Cultural & Sports Boards",
-    parts: "Core Discipline & Logistics Lead",
-    date: "2026",
+    title: "Flagship Institutional Events Coordination",
+    issuer: "JKLU University Administration",
+    parts: "Convocation '24 & '25, Teachers Day '24",
+    date: "2024 – 2025",
     icon: "Users",
     link: "https://jklu.edu.in",
-    skills: ["Event Operations", "Discipline Management", "Team Leadership"]
+    skills: ["Protocol Management", "Dignitary Hospitality", "Event Planning"]
+  }
+];
+
+export const culturalData = [
+  {
+    title: "Vocal Performance (Song)",
+    occasions: "26 Jan '25 (Republic Day) & 15 August '25 (Independence Day)",
+    type: "Music"
+  },
+  {
+    title: "Theatrical Drama",
+    occasions: "Mentor's Day Institutional Celebration",
+    type: "Theatre"
+  },
+  {
+    title: "Dance Performance",
+    occasions: "Aarambh'26 Orientation Fest",
+    type: "Dance"
   }
 ];

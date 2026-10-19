@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Award, ExternalLink, CheckCircle2, ShieldCheck, Database, Server, Users } from 'lucide-react';
-import { certificationsData } from '../data/portfolioData';
+import { Award, ExternalLink, CheckCircle2, ShieldCheck, Database, Server, Users, Mic2, Theater, Sparkles } from 'lucide-react';
+import { certificationsData, culturalData } from '../data/portfolioData';
 
 const iconMap = {
   Database,
@@ -93,6 +93,51 @@ const Certifications = () => {
             );
           })}
         </div>
+
+        {/* Cultural Participation & Campus Highlights */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-16 max-w-5xl mx-auto p-8 rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700/80 shadow-md"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <div className="p-2.5 rounded-xl bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400">
+              <Sparkles className="w-5 h-5" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white">
+                Cultural Performances & Campus Representation
+              </h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400 font-mono">
+                Active stage performer and institutional coordinator at JKLU
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {culturalData.map((item, idx) => (
+              <div
+                key={idx}
+                className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700/60 hover:border-brand-500/40 transition-colors"
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
+                    {item.type}
+                  </span>
+                  <Mic2 className="w-4 h-4 text-slate-400" />
+                </div>
+                <h4 className="font-bold text-slate-900 dark:text-white text-base">
+                  {item.title}
+                </h4>
+                <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">
+                  {item.occasions}
+                </p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
