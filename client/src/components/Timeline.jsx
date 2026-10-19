@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { GraduationCap, Briefcase, Award, Calendar, Building2 } from 'lucide-react';
+import { GraduationCap, Briefcase, Award, Calendar, Building2, Sparkles } from 'lucide-react';
 import { timelineData } from '../data/portfolioData';
 
 const Timeline = () => {
@@ -10,14 +10,17 @@ const Timeline = () => {
     ? timelineData
     : timelineData.filter((item) => item.type === filterType);
 
-  const getIcon = (type) => {
-    switch (type) {
+  const getIcon = (item) => {
+    if (item.title.includes('General Secretary')) {
+      return <Sparkles className="w-5 h-5 text-amber-500" />;
+    }
+    switch (item.type) {
       case 'education':
         return <GraduationCap className="w-5 h-5 text-brand-500" />;
       case 'experience':
         return <Briefcase className="w-5 h-5 text-cyanAccent" />;
       default:
-        return <Award className="w-5 h-5 text-amber-500" />;
+        return <Award className="w-5 h-5 text-purple-500" />;
     }
   };
 
@@ -40,7 +43,7 @@ const Timeline = () => {
           </h2>
           <div className="w-16 h-1 bg-gradient-to-r from-brand-500 to-cyanAccent mx-auto mt-4 rounded-full" />
           <p className="mt-4 text-slate-600 dark:text-slate-400 max-w-xl mx-auto text-sm sm:text-base">
-            My academic journey, software engineering internship, and campus leadership roles.
+            My academic journey, software engineering internships, and apex campus leadership tenures.
           </p>
         </motion.div>
 
@@ -50,7 +53,7 @@ const Timeline = () => {
             { key: 'all', label: 'All Milestones' },
             { key: 'education', label: 'Education' },
             { key: 'experience', label: 'Internships' },
-            { key: 'leadership', label: 'Leadership' }
+            { key: 'leadership', label: 'Council & Leadership' }
           ].map((tab) => (
             <button
               key={tab.key}
@@ -86,8 +89,10 @@ const Timeline = () => {
                   }`}
                 >
                   {/* Timeline Node Icon */}
-                  <div className="absolute left-4 sm:left-1/2 -translate-x-1/2 w-9 h-9 rounded-full bg-white dark:bg-slate-900 border-2 border-brand-500 shadow-md flex items-center justify-center z-10">
-                    {getIcon(item.type)}
+                  <div className={`absolute left-4 sm:left-1/2 -translate-x-1/2 w-9 h-9 rounded-full bg-white dark:bg-slate-900 border-2 shadow-md flex items-center justify-center z-10 ${
+                    item.title.includes('General Secretary') ? 'border-amber-500 shadow-amber-500/30' : 'border-brand-500'
+                  }`}>
+                    {getIcon(item)}
                   </div>
 
                   {/* Spacer for other side on desktop */}
@@ -99,19 +104,35 @@ const Timeline = () => {
                       isEven ? 'sm:pr-10' : 'sm:pl-10'
                     }`}
                   >
-                    <div className="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700/80 shadow-sm hover:shadow-md transition-shadow group">
+                    <div className={`p-6 rounded-2xl bg-white dark:bg-slate-800 border shadow-sm hover:shadow-md transition-all group ${
+                      item.title.includes('General Secretary')
+                        ? 'border-amber-400 dark:border-amber-500/70 ring-1 ring-amber-400/40 shadow-amber-500/10'
+                        : 'border-slate-200 dark:border-slate-700/80'
+                    }`}>
                       <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold bg-brand-50 dark:bg-brand-950/70 text-brand-700 dark:text-brand-300 border border-brand-200 dark:border-brand-800">
+                        <span className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold border ${
+                          item.title.includes('General Secretary')
+                            ? 'bg-amber-50 dark:bg-amber-950/70 text-amber-700 dark:text-amber-300 border-amber-300 dark:border-amber-800'
+                            : 'bg-brand-50 dark:bg-brand-950/70 text-brand-700 dark:text-brand-300 border-brand-200 dark:border-brand-800'
+                        }`}>
                           <Calendar className="w-3 h-3" />
                           {item.period}
                         </span>
 
-                        <span className="px-2.5 py-0.5 rounded-full text-xs font-bold font-mono bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200">
+                        <span className={`px-2.5 py-0.5 rounded-full text-xs font-bold font-mono ${
+                          item.title.includes('General Secretary')
+                            ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-sm'
+                            : 'bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200'
+                        }`}>
                           {item.badge}
                         </span>
                       </div>
 
-                      <h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-brand-500 transition-colors">
+                      <h3 className={`text-lg font-bold transition-colors ${
+                        item.title.includes('General Secretary')
+                          ? 'text-amber-600 dark:text-amber-400'
+                          : 'text-slate-900 dark:text-white group-hover:text-brand-500'
+                      }`}>
                         {item.title}
                       </h3>
 

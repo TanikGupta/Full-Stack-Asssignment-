@@ -150,6 +150,15 @@ export const timelineData = [
   },
   {
     type: "leadership",
+    title: "General Secretary – Cultural Affairs (Student Council)",
+    institution: "JK Lakshmipat University",
+    period: "2026 – 2027",
+    badge: "Apex Council Executive",
+    description:
+      "Elected General Secretary of Cultural Affairs on the Student Council. Leading university-wide cultural festivals, festival celebrations, large-scale stage productions, inter-collegiate delegations, and budget allocations."
+  },
+  {
+    type: "leadership",
     title: "Class Representative (CR) – BTech 3rd Year Sec B",
     institution: "JK Lakshmipat University",
     period: "2026 – Present",
