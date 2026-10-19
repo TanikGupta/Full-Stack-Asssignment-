@@ -154,14 +154,6 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
-
-              {/* MERN Stack Note for Grading */}
-              <div className="mt-8 p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700/60 text-xs text-slate-500 dark:text-slate-400">
-                <span className="font-semibold text-slate-700 dark:text-slate-200 block mb-1">
-                  ⚡ Full-Stack Integration
-                </span>
-                Messages are dispatched via Express REST API route (<code className="font-mono text-brand-500">/api/contact</code>) and persisted in MongoDB via Mongoose.
-              </div>
             </div>
           </motion.div>
 
