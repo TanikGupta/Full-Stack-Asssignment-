@@ -4,12 +4,12 @@ export const personalInfo = {
   role: "Full-Stack Web Developer",
   subtitles: [
     "Full-Stack Web Developer",
+    "General Secretary – Cultural Affairs (Student Council)",
     "Developer of Sahayak & Aarambh Auction",
     "B.Tech CSE Student (Roll: 2024BTech234)",
-    "Class Representative (CR - 3rd Year Sec B)",
-    "Campus Leader & Operations Head"
+    "Campus Operations & Event Head"
   ],
-  bio: "Detail-oriented and driven B.Tech CSE student (Roll No: 2024BTech234) at JK Lakshmipat University. Full-stack developer with real-world applications deployed including the Sahayak Documentation Portal and Aarambh Auction Platform. Active Class Representative (CR - BTech 3rd Year Sec B), Academic Affairs Intern, and Student Council Leader with extensive experience directing operations for university-level fests, hackathons, and cultural initiatives.",
+  bio: "Detail-oriented and driven B.Tech CSE student (Roll No: 2024BTech234) at JK Lakshmipat University. Full-stack developer with production web platforms including the Sahayak Documentation Portal and Aarambh Auction Platform. Serving as the General Secretary of Cultural Affairs on the Student Council with extensive experience directing large-scale university fests, national hackathons, and operational teams.",
   location: "Jaipur, Rajasthan, India",
   email: "TanikGupta@jklu.edu.in",
   phone: "+91 9929396663",
@@ -18,7 +18,7 @@ export const personalInfo = {
   cgpa: "8.268",
   github: "https://github.com/TanikGupta",
   linkedin: "https://www.linkedin.com/in/tanik-gupta-643a53313/",
-  status: "Student / Full-Stack Engineer & CR"
+  status: "Student / General Secretary & Full-Stack Developer"
 };
 
 export const skillsData = {
@@ -146,7 +146,7 @@ export const timelineData = [
     period: "2024 – 2028",
     badge: "CGPA: 8.268",
     description:
-      "Pursuing core computer science courses including DSA, DBMS, Computer Networks, and Full-Stack Web Engineering. Active Class Representative (CR) for 3rd Year Section B."
+      "Pursuing core computer science courses including Data Structures & Algorithms, DBMS, Computer Networks, and Full-Stack Web Engineering at JKLU."
   },
   {
     type: "leadership",
