@@ -5,6 +5,7 @@ import { useTheme } from '../context/ThemeContext';
 import { personalInfo } from '../data/portfolioData';
 
 const navLinks = [
+  { name: 'Moments', href: '#moments' },
   { name: 'About', href: '#about' },
   { name: 'Skills', href: '#skills' },
   { name: 'Projects', href: '#projects' },
