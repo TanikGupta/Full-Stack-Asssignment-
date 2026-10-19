@@ -43,7 +43,7 @@ const slides = [
     badge: 'Full-Stack Developer',
     subtitle: 'General Secretary – Cultural Affairs (Student Council)',
     description:
-      'Driven software engineering student (Roll: 2024BTech234) combining MERN stack development with impactful university leadership.',
+      'Driven software engineering student combining MERN stack development with impactful university leadership.',
     location: 'Jaipur, Rajasthan',
     tag: 'Profile'
   }

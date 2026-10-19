@@ -6,7 +6,7 @@ import { personalInfo } from '../data/portfolioData';
 const About = () => {
   const highlights = [
     { label: 'CGPA', value: personalInfo.cgpa, sub: 'Scale of 10 at JKLU' },
-    { label: 'Roll Number', value: personalInfo.rollNo, sub: 'B.Tech CSE (2024-28)' },
+    { label: 'Degree', value: 'B.Tech CSE', sub: '2024 – 2028 @ JKLU' },
     { label: 'Leadership', value: 'General Secretary', sub: 'Cultural Affairs Council' },
     { label: 'Web Projects', value: 'Sahayak & Aarambh', sub: 'MERN & Full-Stack Apps' }
   ];
@@ -69,7 +69,7 @@ const About = () => {
                   </div>
                   <div className="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-300">
                     <GraduationCap className="w-4 h-4 text-purple-500 flex-shrink-0" />
-                    <span>{personalInfo.degree} <strong className="font-mono text-xs text-brand-600 dark:text-brand-400">({personalInfo.rollNo})</strong></span>
+                    <span>{personalInfo.degree}</span>
                   </div>
                   <div className="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-300">
                     <Award className="w-4 h-4 text-cyanAccent flex-shrink-0" />

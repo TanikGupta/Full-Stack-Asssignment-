@@ -6,10 +6,10 @@ export const personalInfo = {
     "Full-Stack Web Developer",
     "General Secretary – Cultural Affairs (Student Council)",
     "Developer of Sahayak & Aarambh Auction",
-    "B.Tech CSE Student (Roll: 2024BTech234)",
+    "B.Tech Computer Science & Engineering",
     "Campus Operations & Event Head"
   ],
-  bio: "Detail-oriented and driven B.Tech CSE student (Roll No: 2024BTech234) at JK Lakshmipat University. Full-stack developer with production web platforms including the Sahayak Documentation Portal and Aarambh Auction Platform. Serving as the General Secretary of Cultural Affairs on the Student Council with extensive experience directing large-scale university fests, national hackathons, and operational teams.",
+  bio: "Detail-oriented and driven B.Tech CSE student at JK Lakshmipat University. Full-stack developer with production web platforms including the Sahayak Documentation Portal and Aarambh Auction Platform. Serving as the General Secretary of Cultural Affairs on the Student Council with extensive experience directing large-scale university fests, national hackathons, and operational teams.",
   location: "Jaipur, Rajasthan, India",
   email: "TanikGupta@jklu.edu.in",
   phone: "+91 9929396663",
@@ -142,7 +142,7 @@ export const timelineData = [
   {
     type: "education",
     title: "B.Tech in Computer Science & Engineering",
-    institution: "JK Lakshmipat University, Jaipur (Roll: 2024BTech234)",
+    institution: "JK Lakshmipat University, Jaipur",
     period: "2024 – 2028",
     badge: "CGPA: 8.268",
     description:
