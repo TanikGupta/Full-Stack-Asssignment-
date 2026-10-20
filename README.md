@@ -7,7 +7,7 @@
 ## 🌐 Live Deployments
 - **Frontend (Vercel / Netlify)**: `https://tanik-gupta-portfolio.vercel.app` *(or your custom deployed URL)*
 - **Backend API (Render / Railway)**: `https://tanik-gupta-api.onrender.com` *(or your custom deployed URL)*
-- **GitHub Repository**: [https://github.com/TanikGupta/full-stack-mern-portfolio](https://github.com/TanikGupta)
+- **GitHub Repository**: [https://github.com/TanikGupta/Full-Stack-Asssignment-](https://github.com/TanikGupta/Full-Stack-Asssignment-)
 
 ---
 
@@ -131,8 +131,8 @@ Full Stack Assignment/
 
 ### 2. Clone the Repository
 ```bash
-git clone https://github.com/TanikGupta/full-stack-mern-portfolio.git
-cd full-stack-mern-portfolio
+git clone https://github.com/TanikGupta/Full-Stack-Asssignment-.git
+cd Full-Stack-Asssignment-
 ```
 
 ### 3. Backend Setup
