@@ -95,7 +95,7 @@ export const projectsData = [
       "Interactive data science dashboard and predictive modeling engine comparing classification metrics across Scikit-learn and XGBoost to evaluate client subscription probability.",
     tags: ["Python", "Scikit-learn", "XGBoost", "Streamlit", "Plotly", "Pandas"],
     github: "https://github.com/TanikGupta",
-    live: "https://github.com/TanikGupta",
+    live: null,
     featured: true,
     highlights: [
       "Extensive feature engineering and data preprocessing with Pandas",
@@ -112,7 +112,7 @@ export const projectsData = [
       "A robust web-based management system and database architecture designed to handle registrations, participant verification, and multi-track event scheduling for large-scale college fests.",
     tags: ["MySQL", "DBMS", "Node.js", "HTML5", "CSS3", "JavaScript"],
     github: "https://github.com/TanikGupta",
-    live: "https://github.com/TanikGupta",
+    live: null,
     featured: true,
     highlights: [
       "Optimized relational database schema and complex SQL queries",
@@ -129,7 +129,7 @@ export const projectsData = [
       "Feasibility study and concept architecture for a smart portable backpack integrated with solar harvesting and high-efficiency battery backup for on-the-go electronic device charging.",
     tags: ["Product Design", "Feasibility Analysis", "CleanTech", "MS Excel"],
     github: "https://github.com/TanikGupta",
-    live: "https://github.com/TanikGupta",
+    live: null,
     featured: false,
     highlights: [
       "Solar efficiency calculations and power output curve modeling",
