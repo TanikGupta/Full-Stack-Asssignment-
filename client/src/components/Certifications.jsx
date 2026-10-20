@@ -1,13 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Award, ExternalLink, CheckCircle2, ShieldCheck, Database, Server, Users, Mic2, Theater, Sparkles } from 'lucide-react';
+import { Award, ExternalLink, CheckCircle2, ShieldCheck, Database, Server, Users, Binary, Mic2, Theater, Sparkles } from 'lucide-react';
 import { certificationsData, culturalData } from '../data/portfolioData';
 
 const iconMap = {
   Database,
   Server,
   Award,
-  Users
+  Users,
+  Binary
 };
 
 const Certifications = () => {
@@ -60,7 +61,7 @@ const Certifications = () => {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 text-xs font-mono font-semibold text-brand-600 dark:text-brand-400 hover:underline"
                     >
-                      <span>Verify</span>
+                      <span>{cert.link?.endsWith('.pdf') ? 'View Certificate' : 'Verify'}</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </a>
                   </div>

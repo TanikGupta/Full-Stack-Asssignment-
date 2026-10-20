@@ -257,6 +257,15 @@ export const timelineData = [
 
 export const certificationsData = [
   {
+    title: "MathWorks Training Services – Image Processing Onramp",
+    issuer: "MathWorks",
+    parts: "100% Course Completion",
+    date: "14 August 2026",
+    icon: "Binary",
+    link: "/certificates/image_processing_onramp.pdf",
+    skills: ["MATLAB", "Image Processing", "Filtering & Segmentation", "Feature Extraction", "Color Plane Analysis"]
+  },
+  {
     title: "Infosys Springboard – Database Management System",
     issuer: "Infosys Springboard",
     parts: "Part-1 & Part-2",
