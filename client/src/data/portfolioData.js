@@ -88,6 +88,23 @@ export const projectsData = [
   },
   {
     id: 3,
+    title: "Design Project Awareness Website",
+    subtitle: "Interactive Educational & Awareness Platform",
+    category: "Frontend / Web",
+    description:
+      "Interactive responsive web portal built to present design thinking methodologies, creative project documentation, and user awareness through structured visual storytelling.",
+    tags: ["HTML5", "CSS3", "JavaScript", "Responsive Design", "GitHub Pages"],
+    github: "https://github.com/TanikGupta/Design-Project-Awareness-Website",
+    live: "https://tanikgupta.github.io/Design-Project-Awareness-Website/",
+    featured: true,
+    highlights: [
+      "Deployed live on GitHub Pages with fully responsive mobile-first UI",
+      "Interactive multimedia design project documentation modules",
+      "Clean semantic architecture with accessible cross-device layouts"
+    ]
+  },
+  {
+    id: 4,
     title: "Bank Marketing Campaign Response Prediction",
     subtitle: "Machine Learning & Analytics Dashboard",
     category: "ML / Python",
@@ -104,7 +121,7 @@ export const projectsData = [
     ]
   },
   {
-    id: 4,
+    id: 5,
     title: "Event & Cultural Fest Management System",
     subtitle: "DBMS & Web Management Platform",
     category: "DBMS / Full Stack",
@@ -121,7 +138,7 @@ export const projectsData = [
     ]
   },
   {
-    id: 5,
+    id: 6,
     title: "Eco Charge Bag – Portable Solar Bag",
     subtitle: "CleanTech & Business Feasibility Concept",
     category: "Innovation",

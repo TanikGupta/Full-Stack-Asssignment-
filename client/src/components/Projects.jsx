@@ -6,11 +6,11 @@ import { projectsData } from '../data/portfolioData';
 const Projects = () => {
   const [filter, setFilter] = useState('All');
 
-  const filterOptions = ['All', 'Full Stack', 'ML / Python', 'DBMS / Full Stack'];
+  const filterOptions = ['All', 'Full Stack', 'Frontend / Web', 'ML / Python', 'DBMS'];
 
   const filteredProjects = filter === 'All'
     ? projectsData
-    : projectsData.filter((p) => p.category.includes(filter) || (filter === 'Full Stack' && p.category.includes('Full Stack')));
+    : projectsData.filter((p) => p.category.toLowerCase().includes(filter.toLowerCase()));
 
   return (
     <section id="projects" className="py-20 relative">
