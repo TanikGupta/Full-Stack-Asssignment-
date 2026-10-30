@@ -5,27 +5,27 @@ import { FileText, Download, CheckCircle, AlertCircle, Loader2 } from 'lucide-re
 const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
 const ResumeDownload = () => {
-  const [downloadingFormat, setDownloadingFormat] = useState(null);
+  const [downloading, setDownloading] = useState(false);
   const [downloadStatus, setDownloadStatus] = useState(null);
 
-  const handleDownload = async (format) => {
+  const handleDownload = async () => {
     try {
-      setDownloadingFormat(format);
+      setDownloading(true);
       setDownloadStatus(null);
 
-      const endpoint = `${API_BASE}/api/resume/${format}`;
+      const endpoint = `${API_BASE}/api/resume/pdf`;
 
-      // Create an anchor and trigger the download via browser
+      // Trigger download via browser
       const link = document.createElement('a');
       link.href = endpoint;
-      link.setAttribute('download', `Tanik_Gupta_Resume.${format}`);
+      link.setAttribute('download', 'Tanik_Gupta_Resume.pdf');
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
 
       setDownloadStatus({
         type: 'success',
-        message: `Successfully requested ${format.toUpperCase()} resume from backend!`
+        message: 'Resume download initiated successfully!'
       });
     } catch (err) {
       console.error('Download error:', err);
@@ -34,7 +34,7 @@ const ResumeDownload = () => {
         message: 'Could not connect to backend server. Please ensure server is running.'
       });
     } finally {
-      setTimeout(() => setDownloadingFormat(null), 1000);
+      setTimeout(() => setDownloading(false), 1000);
       setTimeout(() => setDownloadStatus(null), 5000);
     }
   };
@@ -57,91 +57,49 @@ const ResumeDownload = () => {
           </h2>
           <div className="w-16 h-1 bg-gradient-to-r from-brand-500 to-cyanAccent mx-auto mt-4 rounded-full" />
           <p className="mt-4 text-slate-600 dark:text-slate-400 max-w-xl mx-auto text-sm sm:text-base">
-            Served securely via dynamic Node.js / Express backend endpoints in both standard PDF and editable Microsoft Word formats.
+            Download my verified ATS-friendly resume for career opportunities, internships, and technical collaborations.
           </p>
         </motion.div>
 
-        {/* Download Options Cards */}
-        <div className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* PDF Card */}
+        {/* Centered Resume Download Card */}
+        <div className="max-w-xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             whileHover={{ y: -4 }}
-            className="p-8 rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700/80 shadow-md flex flex-col justify-between"
+            className="p-8 sm:p-10 rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700/80 shadow-lg flex flex-col justify-between text-center items-center"
           >
-            <div>
-              <div className="w-14 h-14 rounded-2xl bg-red-50 dark:bg-red-950/50 text-red-500 flex items-center justify-center mb-5 border border-red-200 dark:border-red-900/50">
-                <FileText className="w-7 h-7" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white">
-                PDF Document
-              </h3>
-              <p className="text-xs font-mono text-slate-400 mt-1">
-                Format: .PDF | Route: /api/resume/pdf
-              </p>
-              <p className="mt-3 text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                Standard ATS-friendly document format, ideal for recruiters, digital viewing, and printing.
-              </p>
+            <div className="w-16 h-16 rounded-2xl bg-red-50 dark:bg-red-950/50 text-red-500 flex items-center justify-center mb-5 border border-red-200 dark:border-red-900/50 shadow-sm">
+              <FileText className="w-8 h-8" />
             </div>
 
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
+              Tanik Gupta – Curriculum Vitae
+            </h3>
+            
+            <p className="text-xs font-mono text-brand-600 dark:text-brand-400 mt-2 font-medium">
+              Standard ATS-Friendly Document • PDF Format
+            </p>
+
+            <p className="mt-4 text-slate-600 dark:text-slate-300 text-sm leading-relaxed max-w-md">
+              Comprehensive overview of full-stack engineering projects, core CS coursework, leadership tenures, and technical skill set.
+            </p>
+
             <button
-              onClick={() => handleDownload('pdf')}
-              disabled={downloadingFormat === 'pdf'}
-              className="mt-6 w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 shadow-md shadow-red-500/20 active:scale-98 transition-all disabled:opacity-50"
+              onClick={handleDownload}
+              disabled={downloading}
+              className="mt-8 w-full sm:w-auto min-w-[240px] inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-white bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 shadow-md shadow-red-500/25 active:scale-98 transition-all disabled:opacity-50"
             >
-              {downloadingFormat === 'pdf' ? (
+              {downloading ? (
                 <>
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                  <span>Downloading...</span>
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                  <span>Preparing Resume...</span>
                 </>
               ) : (
                 <>
-                  <Download className="w-4 h-4" />
-                  <span>Download PDF</span>
-                </>
-              )}
-            </button>
-          </motion.div>
-
-          {/* Word (.docx) Card */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            whileHover={{ y: -4 }}
-            className="p-8 rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700/80 shadow-md flex flex-col justify-between"
-          >
-            <div>
-              <div className="w-14 h-14 rounded-2xl bg-blue-50 dark:bg-blue-950/50 text-blue-500 flex items-center justify-center mb-5 border border-blue-200 dark:border-blue-900/50">
-                <FileText className="w-7 h-7" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white">
-                Microsoft Word
-              </h3>
-              <p className="text-xs font-mono text-slate-400 mt-1">
-                Format: .DOCX | Route: /api/resume/docx
-              </p>
-              <p className="mt-3 text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                Fully editable Word document format compatible with Microsoft Word and Google Docs.
-              </p>
-            </div>
-
-            <button
-              onClick={() => handleDownload('docx')}
-              disabled={downloadingFormat === 'docx'}
-              className="mt-6 w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 shadow-md shadow-blue-500/20 active:scale-98 transition-all disabled:opacity-50"
-            >
-              {downloadingFormat === 'docx' ? (
-                <>
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                  <span>Downloading...</span>
-                </>
-              ) : (
-                <>
-                  <Download className="w-4 h-4" />
-                  <span>Download DOCX</span>
+                  <Download className="w-5 h-5" />
+                  <span>Download PDF Resume</span>
                 </>
               )}
             </button>
