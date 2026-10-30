@@ -68,7 +68,7 @@ const Footer = () => {
         {/* Bottom Credits */}
         <div className="mt-8 pt-8 border-t border-slate-100 dark:border-slate-800/60 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 dark:text-slate-400 gap-4">
           <p>
-            © {new Date().getFullYear()} Tanik Gupta. Built for MERN Stack Assignment.
+            © {new Date().getFullYear()} Tanik Gupta - All rights reserved.
           </p>
           <p className="flex items-center gap-1 font-mono">
             <span>Crafted with</span>

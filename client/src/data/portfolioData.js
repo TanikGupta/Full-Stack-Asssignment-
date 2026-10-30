@@ -282,24 +282,6 @@ export const certificationsData = [
     icon: "Server",
     link: "https://www.redhat.com/en/services/training/rh124-red-hat-system-administration-i",
     skills: ["Linux CLI", "User Administration", "Process Management", "File Permissions"]
-  },
-  {
-    title: "HackJKLU v5.0 & v4.0 – National Hackathons",
-    issuer: "JK Lakshmipat University",
-    parts: "Core Food & Accommodation Lead",
-    date: "2025 – 2026",
-    icon: "Award",
-    link: "https://jklu.edu.in",
-    skills: ["Hackathon Logistics", "Hospitality Management", "Crisis Resolution"]
-  },
-  {
-    title: "Flagship Institutional Events Coordination",
-    issuer: "JKLU University Administration",
-    parts: "Convocation '24 & '25, Teachers Day '24",
-    date: "2024 – 2025",
-    icon: "Users",
-    link: "https://jklu.edu.in",
-    skills: ["Protocol Management", "Dignitary Hospitality", "Event Planning"]
   }
 ];
 
