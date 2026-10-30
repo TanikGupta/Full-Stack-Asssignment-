@@ -55,15 +55,32 @@ const Certifications = () => {
                       <IconComp className="w-6 h-6" />
                     </div>
 
-                    <a
-                      href={cert.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-xs font-mono font-semibold text-brand-600 dark:text-brand-400 hover:underline"
-                    >
-                      <span>{cert.link?.endsWith('.pdf') ? 'View Certificate' : 'Verify'}</span>
-                      <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      {cert.links ? (
+                        cert.links.map((action, lIdx) => (
+                          <a
+                            key={lIdx}
+                            href={action.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-mono font-semibold bg-brand-50 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400 hover:bg-brand-100 dark:hover:bg-brand-900/60 transition-colors border border-brand-200/60 dark:border-brand-800/40"
+                          >
+                            <span>{action.label}</span>
+                            <ExternalLink className="w-3 h-3" />
+                          </a>
+                        ))
+                      ) : (
+                        <a
+                          href={cert.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-xs font-mono font-semibold text-brand-600 dark:text-brand-400 hover:underline"
+                        >
+                          <span>{cert.link?.endsWith('.pdf') ? 'View Certificate' : 'Verify'}</span>
+                          <ExternalLink className="w-3.5 h-3.5" />
+                        </a>
+                      )}
+                    </div>
                   </div>
 
                   <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mt-4">

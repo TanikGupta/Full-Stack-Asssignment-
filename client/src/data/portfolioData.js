@@ -263,25 +263,36 @@ export const certificationsData = [
     date: "14 August 2026",
     icon: "Binary",
     link: "/certificates/image_processing_onramp.pdf",
+    links: [
+      { label: "View PDF", url: "/certificates/image_processing_onramp.pdf" }
+    ],
     skills: ["MATLAB", "Image Processing", "Filtering & Segmentation", "Feature Extraction", "Color Plane Analysis"]
   },
   {
     title: "Infosys Springboard – Database Management System",
     issuer: "Infosys Springboard",
     parts: "Part-1 & Part-2",
-    date: "Certified",
+    date: "14 November 2025",
     icon: "Database",
-    link: "https://infyspringboard.onwingspan.com",
-    skills: ["SQL", "Relational Database Design", "Transactions", "Indexing"]
+    link: "/certificates/infosys_dbms_part1.pdf",
+    links: [
+      { label: "Part 1 PDF", url: "/certificates/infosys_dbms_part1.pdf" },
+      { label: "Part 2 PDF", url: "/certificates/infosys_dbms_part2.pdf" }
+    ],
+    skills: ["SQL", "Relational Database Design", "Transactions & ACID", "Indexing & Query Optimization"]
   },
   {
-    title: "Red Hat System Administration (RH124 - RHA) Ver. 10",
+    title: "Red Hat System Administration I (RH124 - RHA) Ver. 10",
     issuer: "Red Hat Academy",
-    parts: "Version 10",
-    date: "Certified",
+    parts: "40 Credit Hours",
+    date: "17 April 2026",
     icon: "Server",
-    link: "https://www.redhat.com/en/services/training/rh124-red-hat-system-administration-i",
-    skills: ["Linux CLI", "User Administration", "Process Management", "File Permissions"]
+    link: "/certificates/redhat_system_administration.pdf",
+    links: [
+      { label: "View PDF", url: "/certificates/redhat_system_administration.pdf" },
+      { label: "Credly Badge", url: "https://www.credly.com/badges/177c6dce-6449-4c33-bf74-c0795070eec9" }
+    ],
+    skills: ["Linux CLI", "User Administration", "Process Management", "File Permissions", "Storage Config"]
   }
 ];
 
