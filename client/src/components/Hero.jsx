@@ -124,7 +124,7 @@ const Hero = () => {
             className="inline-flex items-center gap-2.5 px-6 sm:px-7 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-brand-600 via-indigo-600 to-brand-700 hover:from-brand-500 hover:to-indigo-500 shadow-xl shadow-brand-500/25 hover:shadow-brand-500/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 text-sm sm:text-base"
           >
             <Download className="w-5 h-5" />
-            <span>Download CV (PDF / DOCX)</span>
+            <span>Download CV</span>
           </a>
 
           <a

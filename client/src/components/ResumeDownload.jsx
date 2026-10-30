@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FileText, Download, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
+import { FileText, Download, CheckCircle, AlertCircle, Loader2, ExternalLink } from 'lucide-react';
 
 const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
@@ -13,9 +13,9 @@ const ResumeDownload = () => {
       setDownloading(true);
       setDownloadStatus(null);
 
+      // Backend endpoint or fallback to static asset
       const endpoint = `${API_BASE}/api/resume/pdf`;
 
-      // Trigger download via browser
       const link = document.createElement('a');
       link.href = endpoint;
       link.setAttribute('download', 'Tanik_Gupta_Resume.pdf');
@@ -29,10 +29,13 @@ const ResumeDownload = () => {
       });
     } catch (err) {
       console.error('Download error:', err);
-      setDownloadStatus({
-        type: 'error',
-        message: 'Could not connect to backend server. Please ensure server is running.'
-      });
+      // Fallback directly to public static file
+      const link = document.createElement('a');
+      link.href = '/Tanik_Gupta_Resume.pdf';
+      link.setAttribute('download', 'Tanik_Gupta_Resume.pdf');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     } finally {
       setTimeout(() => setDownloading(false), 1000);
       setTimeout(() => setDownloadStatus(null), 5000);
@@ -86,23 +89,35 @@ const ResumeDownload = () => {
               Comprehensive overview of full-stack engineering projects, core CS coursework, leadership tenures, and technical skill set.
             </p>
 
-            <button
-              onClick={handleDownload}
-              disabled={downloading}
-              className="mt-8 w-full sm:w-auto min-w-[240px] inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-white bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 shadow-md shadow-red-500/25 active:scale-98 transition-all disabled:opacity-50"
-            >
-              {downloading ? (
-                <>
-                  <Loader2 className="w-5 h-5 animate-spin" />
-                  <span>Preparing Resume...</span>
-                </>
-              ) : (
-                <>
-                  <Download className="w-5 h-5" />
-                  <span>Download PDF Resume</span>
-                </>
-              )}
-            </button>
+            <div className="mt-8 flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
+              <button
+                onClick={handleDownload}
+                disabled={downloading}
+                className="w-full sm:w-auto min-w-[200px] inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 shadow-md shadow-red-500/25 active:scale-98 transition-all disabled:opacity-50 text-sm sm:text-base"
+              >
+                {downloading ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span>Preparing...</span>
+                  </>
+                ) : (
+                  <>
+                    <Download className="w-4 h-4" />
+                    <span>Download PDF</span>
+                  </>
+                )}
+              </button>
+
+              <a
+                href="/Tanik_Gupta_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto min-w-[160px] inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-slate-700 dark:text-slate-200 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700/80 dark:hover:bg-slate-700 transition-all text-sm sm:text-base border border-slate-200 dark:border-slate-600"
+              >
+                <ExternalLink className="w-4 h-4" />
+                <span>View in Tab</span>
+              </a>
+            </div>
           </motion.div>
         </div>
 
