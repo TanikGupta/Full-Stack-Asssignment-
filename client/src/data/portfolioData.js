@@ -67,7 +67,17 @@ export const projectsData = [
       "Streamlined verification workflow for over 500+ onboarding students",
       "Role-based authentication & document upload management",
       "Real-time status updates powered by Firestore and Node.js REST APIs"
-    ]
+    ],
+    deepDive: {
+      problem: "University admissions faced severe bottlenecks handling manual paper-based document submission and physical verification lines for incoming undergraduate batches.",
+      solution: "Architected a unified digital onboarding platform where students upload identity proofs, certificates, and academic transcripts with live document verification status indicators.",
+      architecture: [
+        "Frontend: Responsive client built with semantic HTML5, modern CSS3, and dynamic JavaScript validation.",
+        "Backend: Node.js & Express REST API router orchestrating file verification and status triggers.",
+        "Database / Storage: Firebase Firestore for real-time document status synchronization."
+      ],
+      impact: "Reduced student registration queue times by over 70% during the university admission cycle."
+    }
   },
   {
     id: 2,
@@ -84,7 +94,17 @@ export const projectsData = [
       "Real-time team purse and remaining budget calculation engine",
       "Interactive player showcase cards with live bidding status updates",
       "Admin controls for auctioneer approvals and team bidder management"
-    ]
+    ],
+    deepDive: {
+      problem: "Live sports auctions during college fests suffered from manual calculations, delayed purse updates, and bidding discrepancy disputes.",
+      solution: "Engineered an IPL-style real-time bidding interface with automated purse balance deductions, maximum bid checks, and transparent bid history auditing.",
+      architecture: [
+        "Frontend: React.js with Tailwind CSS, offering instantaneous state reflections on player cards.",
+        "Budget Engine: Client & server validation preventing bids exceeding franchise purse limits.",
+        "Live Logs: Chronological bid ledger displaying timestamps, teams, and bid increments."
+      ],
+      impact: "Powering the annual Aarambh sports auction with zero budget calculation conflicts."
+    }
   },
   {
     id: 3,
@@ -101,7 +121,17 @@ export const projectsData = [
       "Deployed live on GitHub Pages with fully responsive mobile-first UI",
       "Interactive multimedia design project documentation modules",
       "Clean semantic architecture with accessible cross-device layouts"
-    ]
+    ],
+    deepDive: {
+      problem: "Traditional academic design presentations often rely on flat slides that fail to engage audiences or convey iterative user-centric design steps.",
+      solution: "Built a visually captivating web narrative breaking down empathy maps, ideation phases, and prototype testing into interactive sections.",
+      architecture: [
+        "Markup & Styling: Semantic HTML5, modern flexbox/grid CSS with CSS custom properties.",
+        "Interactivity: Vanilla JavaScript scroll-triggered highlights and dynamic modal previews.",
+        "Deployment: Fully automated CI/CD deployment via GitHub Pages."
+      ],
+      impact: "Used as a benchmark reference project for design thinking documentation at JKLU."
+    }
   },
   {
     id: 4,
@@ -118,7 +148,17 @@ export const projectsData = [
       "Extensive feature engineering and data preprocessing with Pandas",
       "Hyperparameter tuning for XGBoost model yielding high precision/recall",
       "Interactive Streamlit web dashboard with live Plotly visualization"
-    ]
+    ],
+    deepDive: {
+      problem: "Banks waste substantial call-center resources on broad telemarketing campaigns with low conversion rates on term deposit subscriptions.",
+      solution: "Trained and benchmarked multiple ML classification models to identify prospective customers with high propensity to subscribe.",
+      architecture: [
+        "Data Pipeline: Outlier removal, SMOTE class balancing, and one-hot categorical encoding via Pandas.",
+        "Modeling: Evaluated Logistic Regression, Random Forest, and tuned XGBoost with ROC-AUC analysis.",
+        "UI Layer: Streamlit web dashboard allowing bankers to input customer metrics and receive real-time prediction probabilities."
+      ],
+      impact: "Identified high-conversion segments, potentially reducing non-targeted telemarketing outreach by up to 45%."
+    }
   },
   {
     id: 5,
@@ -135,7 +175,17 @@ export const projectsData = [
       "Optimized relational database schema and complex SQL queries",
       "Automated scheduling conflicts detection and slot allocations",
       "Real-time attendee check-ins and registration reporting"
-    ]
+    ],
+    deepDive: {
+      problem: "Managing 15+ simultaneous competitive tracks across Sabrang and Spardha led to scheduling conflicts and scattered participant data.",
+      solution: "Created a normalized MySQL relational database schema with referential integrity to manage participants, teams, venues, and time slots.",
+      architecture: [
+        "Database: 3NF normalized tables with indexing on registration IDs and event codes.",
+        "Backend: Node.js API endpoints executing stored procedures and parameterized SQL queries.",
+        "Frontend: Responsive admin panel for quick check-ins and attendance generation."
+      ],
+      impact: "Seamlessly scheduled multi-venue collegiate events with zero double-booking incidents."
+    }
   },
   {
     id: 6,
@@ -151,7 +201,17 @@ export const projectsData = [
     highlights: [
       "Solar efficiency calculations and power output curve modeling",
       "Complete market feasibility, customer persona, and costing analysis"
-    ]
+    ],
+    deepDive: {
+      problem: "College students and outdoor commuters regularly encounter drained electronic devices without immediate wall outlet access.",
+      solution: "Designed an ergonomic backpack concept integrating lightweight monocrystalline solar panels with an intelligent power-distribution battery pack.",
+      architecture: [
+        "Power Modeling: Calculated solar wattage output under varying daylight irradiance conditions.",
+        "Costing & Feasibility: Structured BOM (Bill of Materials) and unit economics modeling in MS Excel.",
+        "Safety: Thermal dissipation precautions and over-charge circuit isolation design."
+      ],
+      impact: "Awarded top marks in entrepreneurship and engineering design feasibility evaluation."
+    }
   }
 ];
 
@@ -294,6 +354,15 @@ export const certificationsData = [
     ],
     skills: ["Linux CLI", "User Administration", "Process Management", "File Permissions", "Storage Config"]
   }
+];
+
+export const courseworkData = [
+  { code: "CS201", name: "Data Structures & Algorithms", focus: "Trees, Graphs, Sorting, Time Complexity (O(n))", grade: "A" },
+  { code: "CS202", name: "Database Management Systems", focus: "Normalization, SQL, ACID, Relational Schema", grade: "A" },
+  { code: "CS204", name: "Computer Networks", focus: "TCP/IP, OSI Layers, Socket Programming, HTTP/REST", grade: "A" },
+  { code: "CS206", name: "Full-Stack Web Engineering", focus: "React, Node.js, Express, REST APIs, Tailwind CSS", grade: "A+" },
+  { code: "CS301", name: "Object-Oriented Programming", focus: "Encapsulation, Polymorphism, C++, Java", grade: "A" },
+  { code: "CS303", name: "Machine Learning Fundamentals", focus: "Classification, Scikit-learn, XGBoost, Regression", grade: "A" }
 ];
 
 export const culturalData = [

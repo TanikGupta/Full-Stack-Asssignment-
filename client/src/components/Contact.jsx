@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle, Loader2, Sparkles } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle, Loader2, Copy, Check } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { personalInfo } from '../data/portfolioData';
 
@@ -13,7 +13,14 @@ const Contact = () => {
     message: ''
   });
   const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState(null); // { type: 'success' | 'error', message: '' }
+  const [status, setStatus] = useState(null);
+  const [copiedField, setCopiedField] = useState(null);
+
+  const copyToClipboard = (text, fieldName) => {
+    navigator.clipboard.writeText(text);
+    setCopiedField(fieldName);
+    setTimeout(() => setCopiedField(null), 2500);
+  };
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -48,7 +55,6 @@ const Contact = () => {
       const data = await response.json();
 
       if (response.ok && data.success) {
-        // Trigger celebratory confetti effect
         confetti({
           particleCount: 80,
           spread: 60,
@@ -57,7 +63,7 @@ const Contact = () => {
 
         setStatus({
           type: 'success',
-          message: 'Thank you! Your message has been stored in the database.'
+          message: 'Thank you! Your message has been saved in the MongoDB database.'
         });
         setFormData({ name: '', email: '', message: '' });
       } else {
@@ -96,7 +102,7 @@ const Contact = () => {
           </h2>
           <div className="w-16 h-1 bg-gradient-to-r from-brand-500 to-cyanAccent mx-auto mt-4 rounded-full" />
           <p className="mt-4 text-slate-600 dark:text-slate-400 max-w-xl mx-auto text-sm sm:text-base">
-            Have an internship opportunity, collaboration idea, or question? Send me a message below.
+            Have an internship opportunity, collaboration idea, or question? Send a message directly or copy contact details below.
           </p>
         </motion.div>
 
@@ -115,45 +121,88 @@ const Contact = () => {
               </h3>
 
               <div className="space-y-6">
-                {/* Email */}
-                <a
-                  href={`mailto:${personalInfo.email}`}
-                  className="flex items-start gap-4 group text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
-                >
-                  <div className="p-3 rounded-2xl bg-brand-50 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400 group-hover:bg-brand-600 group-hover:text-white transition-colors">
-                    <Mail className="w-5 h-5" />
+                {/* Email with 1-click copy */}
+                <div className="flex items-center justify-between gap-2 p-3 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-700/60">
+                  <div className="flex items-start gap-3 min-w-0">
+                    <div className="p-2.5 rounded-xl bg-brand-50 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400">
+                      <Mail className="w-5 h-5" />
+                    </div>
+                    <div className="truncate">
+                      <span className="block text-[11px] font-mono uppercase text-slate-400">Email Address</span>
+                      <a
+                        href={`mailto:${personalInfo.email}`}
+                        className="text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-brand-500 truncate block"
+                      >
+                        {personalInfo.email}
+                      </a>
+                    </div>
                   </div>
-                  <div>
-                    <span className="block text-xs font-mono uppercase text-slate-400">Email</span>
-                    <span className="text-sm font-semibold">{personalInfo.email}</span>
-                  </div>
-                </a>
+                  <button
+                    onClick={() => copyToClipboard(personalInfo.email, 'email')}
+                    title="Copy Email"
+                    className="p-2 rounded-xl text-slate-500 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors flex-shrink-0"
+                  >
+                    {copiedField === 'email' ? (
+                      <Check className="w-4 h-4 text-emerald-500" />
+                    ) : (
+                      <Copy className="w-4 h-4" />
+                    )}
+                  </button>
+                </div>
 
-                {/* Phone */}
-                <a
-                  href={`tel:${personalInfo.phone}`}
-                  className="flex items-start gap-4 group text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
-                >
-                  <div className="p-3 rounded-2xl bg-cyan-50 dark:bg-cyan-950/60 text-cyan-600 dark:text-cyan-400 group-hover:bg-cyan-600 group-hover:text-white transition-colors">
-                    <Phone className="w-5 h-5" />
+                {/* Phone with 1-click copy */}
+                <div className="flex items-center justify-between gap-2 p-3 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-700/60">
+                  <div className="flex items-start gap-3 min-w-0">
+                    <div className="p-2.5 rounded-xl bg-cyan-50 dark:bg-cyan-950/60 text-cyan-600 dark:text-cyan-400">
+                      <Phone className="w-5 h-5" />
+                    </div>
+                    <div className="truncate">
+                      <span className="block text-[11px] font-mono uppercase text-slate-400">Phone Number</span>
+                      <a
+                        href={`tel:${personalInfo.phone}`}
+                        className="text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-brand-500 truncate block"
+                      >
+                        {personalInfo.phone}
+                      </a>
+                    </div>
                   </div>
-                  <div>
-                    <span className="block text-xs font-mono uppercase text-slate-400">Phone</span>
-                    <span className="text-sm font-semibold">{personalInfo.phone}</span>
-                  </div>
-                </a>
+                  <button
+                    onClick={() => copyToClipboard(personalInfo.phone, 'phone')}
+                    title="Copy Phone"
+                    className="p-2 rounded-xl text-slate-500 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors flex-shrink-0"
+                  >
+                    {copiedField === 'phone' ? (
+                      <Check className="w-4 h-4 text-emerald-500" />
+                    ) : (
+                      <Copy className="w-4 h-4" />
+                    )}
+                  </button>
+                </div>
 
                 {/* Location */}
-                <div className="flex items-start gap-4 text-slate-600 dark:text-slate-300">
-                  <div className="p-3 rounded-2xl bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400">
+                <div className="flex items-start gap-3 p-3 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-700/60">
+                  <div className="p-2.5 rounded-xl bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="block text-xs font-mono uppercase text-slate-400">Location</span>
-                    <span className="text-sm font-semibold">{personalInfo.location}</span>
+                    <span className="block text-[11px] font-mono uppercase text-slate-400">Location</span>
+                    <span className="text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-200">
+                      {personalInfo.location}
+                    </span>
                   </div>
                 </div>
               </div>
+
+              {/* Status Toast Notification */}
+              {copiedField && (
+                <motion.div
+                  initial={{ opacity: 0, y: 5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mt-4 p-2.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 text-xs text-center border border-emerald-200 dark:border-emerald-800 font-mono"
+                >
+                  ✓ {copiedField.toUpperCase()} copied to clipboard!
+                </motion.div>
+              )}
             </div>
           </motion.div>
 
@@ -220,19 +269,38 @@ const Contact = () => {
                 <textarea
                   id="message"
                   name="message"
-                  rows={5}
+                  rows={4}
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Write your message or inquiry here..."
+                  placeholder="Write your message here..."
                   required
                   className="w-full px-4 py-3.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/80 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all text-sm resize-none"
                 />
               </div>
 
+              {/* Submit Button */}
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-semibold text-white bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 shadow-md shadow-brand-500/25 active:scale-98 transition-all disabled:opacity-50 text-sm sm:text-base cursor-pointer"
+              >
+                {loading ? (
+                  <>
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                    <span>Submitting Message...</span>
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-5 h-5" />
+                    <span>Send Message</span>
+                  </>
+                )}
+              </button>
+
               {/* Status Alert */}
               {status && (
                 <motion.div
-                  initial={{ opacity: 0, y: -10 }}
+                  initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   className={`p-4 rounded-xl flex items-center gap-3 text-sm ${
                     status.type === 'success'
@@ -248,25 +316,6 @@ const Contact = () => {
                   <span>{status.message}</span>
                 </motion.div>
               )}
-
-              {/* Submit Button */}
-              <button
-                type="submit"
-                disabled={loading}
-                className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl font-semibold text-white bg-gradient-to-r from-brand-600 via-indigo-600 to-cyanAccent hover:from-brand-500 hover:to-indigo-500 shadow-xl shadow-brand-500/25 active:scale-98 transition-all disabled:opacity-50 text-sm sm:text-base"
-              >
-                {loading ? (
-                  <>
-                    <Loader2 className="w-5 h-5 animate-spin" />
-                    <span>Sending & Saving Message...</span>
-                  </>
-                ) : (
-                  <>
-                    <Send className="w-4 h-4" />
-                    <span>Send Message</span>
-                  </>
-                )}
-              </button>
             </form>
           </motion.div>
         </div>

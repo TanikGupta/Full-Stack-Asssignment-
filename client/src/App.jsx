@@ -2,9 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import Navbar from './components/Navbar';
+import ScrollProgress from './components/ScrollProgress';
 import Hero from './components/Hero';
 import MomentsSlideshow from './components/MomentsSlideshow';
 import About from './components/About';
+import Coursework from './components/Coursework';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Timeline from './components/Timeline';
@@ -16,11 +18,13 @@ import Footer from './components/Footer';
 function PortfolioHome() {
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#0b0f19] text-slate-900 dark:text-slate-100 selection:bg-brand-500 selection:text-white">
+      <ScrollProgress />
       <Navbar />
       <main className="flex-grow">
         <Hero />
         <MomentsSlideshow />
         <About />
+        <Coursework />
         <Skills />
         <Projects />
         <Timeline />

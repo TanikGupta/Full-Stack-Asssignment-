@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Github, FolderGit2, Check, Star } from 'lucide-react';
+import { ExternalLink, Github, FolderGit2, Check, Star, Info, X, Layers, Lightbulb, Zap } from 'lucide-react';
 import { projectsData } from '../data/portfolioData';
 
 const Projects = () => {
   const [filter, setFilter] = useState('All');
+  const [activeModalProject, setActiveModalProject] = useState(null);
 
   const filterOptions = ['All', 'Full Stack', 'Frontend / Web', 'ML / Python', 'DBMS'];
 
@@ -31,7 +32,7 @@ const Projects = () => {
           </h2>
           <div className="w-16 h-1 bg-gradient-to-r from-brand-500 to-cyanAccent mx-auto mt-4 rounded-full" />
           <p className="mt-4 text-slate-600 dark:text-slate-400 max-w-xl mx-auto text-sm sm:text-base">
-            Real-world software engineering, machine learning pipelines, and database management projects built with modern technologies.
+            Real-world software engineering, machine learning pipelines, and database management systems built with modern stacks. Click <strong>Deep Dive</strong> on any project to inspect architecture details.
           </p>
         </motion.div>
 
@@ -127,8 +128,8 @@ const Projects = () => {
                   )}
                 </div>
 
-                {/* Tech Stack Badges */}
-                <div className="mt-6 pt-6 border-t border-slate-100 dark:border-slate-700/60">
+                {/* Footer: Tech Stack Badges + Deep Dive Button */}
+                <div className="mt-6 pt-6 border-t border-slate-100 dark:border-slate-700/60 flex flex-col gap-4">
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag, idx) => (
                       <span
@@ -139,12 +140,133 @@ const Projects = () => {
                       </span>
                     ))}
                   </div>
+
+                  {project.deepDive && (
+                    <button
+                      onClick={() => setActiveModalProject(project)}
+                      className="inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-xl border border-brand-500/30 dark:border-brand-800 bg-brand-50/40 dark:bg-brand-950/40 hover:bg-brand-500 hover:text-white dark:hover:bg-brand-600 text-brand-600 dark:text-brand-400 text-xs sm:text-sm font-semibold transition-all group-hover:shadow-sm"
+                    >
+                      <Info className="w-4 h-4" />
+                      <span>Architecture & Deep Dive</span>
+                    </button>
+                  )}
                 </div>
               </motion.div>
             ))}
           </AnimatePresence>
         </motion.div>
       </div>
+
+      {/* Project Deep Dive Modal */}
+      <AnimatePresence>
+        {activeModalProject && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-900/70 backdrop-blur-sm">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-6 sm:p-8 shadow-2xl"
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setActiveModalProject(null)}
+                className="absolute top-5 right-5 p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-red-500 dark:hover:text-red-400 transition-colors"
+                aria-label="Close modal"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              <div className="flex items-center gap-2 mb-2">
+                <span className="px-3 py-1 rounded-full text-xs font-semibold font-mono bg-brand-100 dark:bg-brand-950/70 text-brand-600 dark:text-brand-400">
+                  {activeModalProject.category}
+                </span>
+                <span className="text-xs text-slate-400 font-mono">• Deep Dive</span>
+              </div>
+
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
+                {activeModalProject.title}
+              </h3>
+              <p className="text-xs font-mono text-slate-500 dark:text-slate-400 mt-1">
+                {activeModalProject.subtitle}
+              </p>
+
+              {/* Problem Section */}
+              <div className="mt-6 p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20">
+                <div className="flex items-center gap-2 text-amber-700 dark:text-amber-400 font-semibold text-sm">
+                  <Lightbulb className="w-4 h-4" />
+                  <span>The Problem Solved</span>
+                </div>
+                <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 mt-1.5 leading-relaxed">
+                  {activeModalProject.deepDive.problem}
+                </p>
+              </div>
+
+              {/* Solution Section */}
+              <div className="mt-4 p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20">
+                <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-400 font-semibold text-sm">
+                  <Zap className="w-4 h-4" />
+                  <span>The Engineering Solution</span>
+                </div>
+                <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 mt-1.5 leading-relaxed">
+                  {activeModalProject.deepDive.solution}
+                </p>
+              </div>
+
+              {/* Architecture Breakdown */}
+              <div className="mt-5">
+                <div className="flex items-center gap-2 font-semibold text-sm text-slate-900 dark:text-white mb-2">
+                  <Layers className="w-4 h-4 text-brand-500" />
+                  <span>Technical Architecture & Data Flow</span>
+                </div>
+                <ul className="space-y-2">
+                  {activeModalProject.deepDive.architecture.map((arch, idx) => (
+                    <li
+                      key={idx}
+                      className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 text-xs sm:text-sm text-slate-700 dark:text-slate-300 flex items-start gap-2.5"
+                    >
+                      <span className="w-5 h-5 rounded-md bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center font-mono font-bold text-xs flex-shrink-0 mt-0.5">
+                        {idx + 1}
+                      </span>
+                      <span>{arch}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Impact Callout */}
+              <div className="mt-5 pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between flex-wrap gap-3">
+                <div className="text-xs text-slate-500 dark:text-slate-400">
+                  <span className="font-semibold text-slate-800 dark:text-slate-200">Outcome:</span>{' '}
+                  {activeModalProject.deepDive.impact}
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <a
+                    href={activeModalProject.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 transition-colors"
+                  >
+                    <Github className="w-3.5 h-3.5" />
+                    <span>Source Code</span>
+                  </a>
+                  {activeModalProject.live && (
+                    <a
+                      href={activeModalProject.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-white bg-brand-600 hover:bg-brand-500 transition-colors shadow-sm"
+                    >
+                      <span>Live Site</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

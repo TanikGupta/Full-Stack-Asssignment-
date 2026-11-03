@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sun, Moon, Menu, X, Download, Code } from 'lucide-react';
+import { Sun, Moon, Menu, X, Download, Activity } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { personalInfo } from '../data/portfolioData';
+
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
 const navLinks = [
   { name: 'Moments', href: '#moments' },
@@ -19,12 +21,20 @@ const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [apiOnline, setApiOnline] = useState(null); // null | true | false
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
+
+    // Check backend health
+    fetch(`${API_BASE}/api/health`)
+      .then((res) => res.json())
+      .then((data) => setApiOnline(data.status === 'ok'))
+      .catch(() => setApiOnline(false));
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -38,20 +48,35 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <a href="#" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 via-indigo-500 to-cyanAccent flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-brand-500/25 group-hover:scale-105 transition-transform duration-200">
-              TG
-            </div>
-            <div className="flex flex-col">
-              <span className="font-bold text-lg tracking-tight text-slate-900 dark:text-white group-hover:text-brand-500 transition-colors">
-                {personalInfo.name}
-              </span>
-              <span className="text-xs text-slate-500 dark:text-slate-400 font-mono hidden sm:inline-block">
-                MERN Developer
-              </span>
-            </div>
-          </a>
+          {/* Logo & Live Backend Status Pill */}
+          <div className="flex items-center gap-3">
+            <a href="#" className="flex items-center gap-3 group">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 via-indigo-500 to-cyanAccent flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-brand-500/25 group-hover:scale-105 transition-transform duration-200">
+                TG
+              </div>
+              <div className="flex flex-col">
+                <span className="font-bold text-lg tracking-tight text-slate-900 dark:text-white group-hover:text-brand-500 transition-colors">
+                  {personalInfo.name}
+                </span>
+                <span className="text-xs text-slate-500 dark:text-slate-400 font-mono hidden sm:inline-block">
+                  MERN Developer
+                </span>
+              </div>
+            </a>
+
+            {/* Micro Live Backend Health Indicator */}
+            {apiOnline !== null && (
+              <div
+                title={apiOnline ? 'Node.js/Express Backend Online' : 'Backend Standby'}
+                className="hidden xl:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-mono font-medium border bg-white/60 dark:bg-slate-800/60 border-slate-200 dark:border-slate-700/60"
+              >
+                <span className={`w-2 h-2 rounded-full ${apiOnline ? 'bg-emerald-500 animate-pulse' : 'bg-amber-400'}`} />
+                <span className="text-slate-600 dark:text-slate-400">
+                  {apiOnline ? 'MERN API Live' : 'API Standby'}
+                </span>
+              </div>
+            )}
+          </div>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-1 lg:gap-2">
@@ -72,7 +97,7 @@ const Navbar = () => {
             <button
               onClick={toggleTheme}
               aria-label="Toggle Dark/Light Mode"
-              className="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 text-slate-700 dark:text-amber-400 shadow-sm hover:scale-105 active:scale-95 transition-all"
+              className="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 text-slate-700 dark:text-amber-400 shadow-sm hover:scale-105 active:scale-95 transition-all cursor-pointer"
             >
               {theme === 'dark' ? (
                 <Sun className="w-5 h-5 text-amber-400" />
