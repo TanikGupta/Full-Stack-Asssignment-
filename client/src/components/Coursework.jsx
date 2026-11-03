@@ -42,9 +42,15 @@ const Coursework = () => {
                   <span className="px-2.5 py-1 rounded-lg text-xs font-mono font-bold bg-brand-50 dark:bg-brand-950/70 text-brand-600 dark:text-brand-400 border border-brand-200 dark:border-brand-900/60">
                     {course.code}
                   </span>
-                  <span className="inline-flex items-center gap-1 text-xs font-mono font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50 px-2 py-0.5 rounded-md">
+                  <span
+                    className={`inline-flex items-center gap-1 text-xs font-mono font-semibold px-2 py-0.5 rounded-md ${
+                      course.status === 'Currently Enrolled'
+                        ? 'text-brand-600 dark:text-brand-300 bg-brand-50 dark:bg-brand-950/50 border border-brand-200/50 dark:border-brand-800/40'
+                        : 'text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50'
+                    }`}
+                  >
                     <Award className="w-3 h-3" />
-                    Grade: {course.grade}
+                    {course.status}
                   </span>
                 </div>
 
@@ -59,7 +65,7 @@ const Coursework = () => {
 
               <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-700/60 flex items-center gap-1.5 text-[11px] font-mono text-slate-500 dark:text-slate-400">
                 <CheckCircle2 className="w-3.5 h-3.5 text-brand-500" />
-                <span>JKLU Verified Curriculum</span>
+                <span>JKLU Academic Curriculum</span>
               </div>
             </motion.div>
           ))}

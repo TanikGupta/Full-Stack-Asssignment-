@@ -357,12 +357,12 @@ export const certificationsData = [
 ];
 
 export const courseworkData = [
-  { code: "CS201", name: "Data Structures & Algorithms", focus: "Trees, Graphs, Sorting, Time Complexity (O(n))", grade: "A" },
-  { code: "CS202", name: "Database Management Systems", focus: "Normalization, SQL, ACID, Relational Schema", grade: "A" },
-  { code: "CS204", name: "Computer Networks", focus: "TCP/IP, OSI Layers, Socket Programming, HTTP/REST", grade: "A" },
-  { code: "CS206", name: "Full-Stack Web Engineering", focus: "React, Node.js, Express, REST APIs, Tailwind CSS", grade: "A+" },
-  { code: "CS301", name: "Object-Oriented Programming", focus: "Encapsulation, Polymorphism, C++, Java", grade: "A" },
-  { code: "CS303", name: "Machine Learning Fundamentals", focus: "Classification, Scikit-learn, XGBoost, Regression", grade: "A" }
+  { code: "CS201", name: "Data Structures & Algorithms", focus: "Trees, Graphs, Sorting, Time Complexity (O(n))", status: "Completed" },
+  { code: "CS202", name: "Database Management Systems", focus: "Normalization, SQL, ACID Properties, Relational Schema", status: "Completed" },
+  { code: "CS204", name: "Computer Networks", focus: "TCP/IP, OSI Layers, Socket Programming, HTTP/REST Protocols", status: "Completed" },
+  { code: "CS205", name: "Operating Systems", focus: "Process Scheduling, Concurrency & Deadlocks, Memory Management, Linux Kernels", status: "Currently Enrolled" },
+  { code: "CS301", name: "Object-Oriented Programming", focus: "Encapsulation, Polymorphism, C++, Java Software Design", status: "Completed" },
+  { code: "CS303", name: "Machine Learning Fundamentals", focus: "Supervised Learning, Scikit-learn, XGBoost, Model Benchmarking", status: "Currently Enrolled" }
 ];
 
 export const culturalData = [
