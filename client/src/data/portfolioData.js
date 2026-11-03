@@ -359,10 +359,10 @@ export const certificationsData = [
 export const courseworkData = [
   { code: "CS201", name: "Data Structures & Algorithms", focus: "Trees, Graphs, Sorting, Time Complexity (O(n))", status: "Completed" },
   { code: "CS202", name: "Database Management Systems", focus: "Normalization, SQL, ACID Properties, Relational Schema", status: "Completed" },
-  { code: "CS204", name: "Computer Networks", focus: "TCP/IP, OSI Layers, Socket Programming, HTTP/REST Protocols", status: "Completed" },
-  { code: "CS205", name: "Operating Systems", focus: "Process Scheduling, Concurrency & Deadlocks, Memory Management, Linux Kernels", status: "Currently Enrolled" },
+  { code: "CS204", name: "Computer Networks", focus: "TCP/IP, OSI Layers, Socket Programming, HTTP/REST Protocols", status: "Currently Enrolled" },
+  { code: "CS205", name: "Operating Systems", focus: "Process Scheduling, Concurrency & Deadlocks, Memory Management, Linux Kernels", status: "Completed" },
   { code: "CS301", name: "Object-Oriented Programming", focus: "Encapsulation, Polymorphism, C++, Java Software Design", status: "Completed" },
-  { code: "CS303", name: "Machine Learning Fundamentals", focus: "Supervised Learning, Scikit-learn, XGBoost, Model Benchmarking", status: "Currently Enrolled" }
+  { code: "CS303", name: "Machine Learning Fundamentals", focus: "Supervised Learning, Scikit-learn, XGBoost, Model Benchmarking", status: "Completed" }
 ];
 
 export const culturalData = [
